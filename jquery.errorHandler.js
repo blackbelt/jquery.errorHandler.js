@@ -13,7 +13,21 @@ if (jQuery) (function($) {
                 $field.addClass('error');
                 var placement = $field.data('placement');
                 if (placement) {
-                    if (placement == 'appendForm') {
+                    if (placement.indexOf('appendClosest') > -1) {
+                        var fld = placement.match(/appendClosest\(([a-zA-Z0-9_\-.#]+)\)/);
+                        if (fld && fld.length) {
+                            $field.closest(fld[1]).append('<span class="error"><span>' + message + '</span></span>');
+                        } else {
+                            $field.parent().append('<span class="error"><span>' + message + '</span></span>');
+                        }
+                    } else if (placement.indexOf('prependClosest') > -1) {
+                        var fld = placement.match(/prependClosest\(([a-zA-Z0-9_\-.#]+)\)/);
+                        if (fld && fld.length) {
+                            $field.closest(fld[1]).prepend('<span class="error"><span>' + message + '</span></span>');
+                        } else {
+                            $field.parent().prepend('<span class="error"><span>' + message + '</span></span>');
+                        }
+                    } else if (placement == 'appendForm') {
                         $field.closest('form').append('<span class="error"><span>' + message + '</span></span>');
                     } else if (placement == 'prependForm') {
                         $field.closest('form').prepend('<span class="error"><span>' + message + '</span></span>');
@@ -21,10 +35,20 @@ if (jQuery) (function($) {
                         $field.siblings('label').append('<span class="error"><span>' + message + '</span></span>');
                     } else if (placement == 'prependSiblingLabel') {
                         $field.siblings('label').prepend('<span class="error"><span>' + message + '</span></span>');
-                    } else if (placement == 'appendParent') {
-                        $field.parent().append('<span class="error"><span>' + message + '</span></span>');
-                    } else if (placement == 'prependParent') {
-                        $field.parent().prepend('<span class="error"><span>' + message + '</span></span>');
+                    } else if (placement.indexOf('appendParent') > -1) {
+                        var fld = placement.match(/appendParent\(([a-zA-Z0-9_\-.#]+)\)/);
+                        if (fld && fld.length) {
+                            $field.parent(fld[1]).append('<span class="error"><span>' + message + '</span></span>');
+                        } else {
+                            $field.parent().append('<span class="error"><span>' + message + '</span></span>');
+                        }
+                    } else if (placement.indexOf('prependParent') > -1) {
+                        var fld = placement.match(/prependParent\(([a-zA-Z0-9_\-.#]+)\)/);
+                        if (fld && fld.length) {
+                            $field.parent(fld[1]).prepend('<span class="error"><span>' + message + '</span></span>');
+                        } else {
+                            $field.parent().prepend('<span class="error"><span>' + message + '</span></span>');
+                        }
                     } else if (placement == 'before') {
                         $field.before('<span class="error"><span>' + message + '</span></span>');
                     } else if (placement == 'after') {
