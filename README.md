@@ -2,7 +2,7 @@
 
 There are really no configuration options. The error handler is triggered via a call to `$.errorHandler({field: 'message'}, 'formId')` where you pass in a key/val pair of form field name and error messages.
 
-The second parameter is optional and is a jQuery DOM reference to the form. This is necessary if you have multiple forms on the same page so you can target the appropriate one.
+The second parameter is optional and is a reference to the form if if one exists. This is necessary if you have multiple forms on the same page so you can target the appropriate one.
 
 Form fields will receive a class of `error`. 
 
