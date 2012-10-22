@@ -23,9 +23,8 @@ By default, errorHandler will use `after` if no placement data attribute is supp
 
 ## Example Usage ##
 
-#### Below is strictly a JS example ####
+### Below is strictly a JS example ###
 
-##### HTML #####
 ```html
 <form method="post" action="/" id="login-form">
     <label for="username">Username</label>
@@ -36,10 +35,7 @@ By default, errorHandler will use `after` if no placement data attribute is supp
 
     <button type="submit">Login</button>
 </form>
-```
 
-##### JavaScript #####
-```javascript
 <script type="text/javascript" src="/js/jquery.errorhandler.js"></script>
 <script type="text/javascript">
 var formErr = {
@@ -51,10 +47,10 @@ $.errorHandler(formErr, 'login-form');
 </script>
 ```
 
-#### Below is example usage via PHP errors ####
+### Below is example usage via PHP errors ###
 
-##### HTML #####
-```html
+
+```php
 <form method="post" action="/" id="login-form">
     <label for="username">Username</label>
     <input type="text" name="username" id="username" data-placement="after" />
@@ -64,10 +60,7 @@ $.errorHandler(formErr, 'login-form');
 
     <button type="submit">Login</button>
 </form>
-```
 
-##### JavaScript #####
-```javascript
 <script type="text/javascript" src="/js/jquery.errorhandler.js"></script>
 <script type="text/javascript">
 var formErr = <?php echo (isset($errors) && is_array($errors)) ? json_encode($this->errors) : '{}'; ?>;
