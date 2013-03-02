@@ -5,11 +5,9 @@ That's it! If you want to get tricky, you can also specify multiple error handle
 
 ## Configuration ##
 
-There are really no configuration options. The error handler is triggered via a call to `$.errorHandler({field: 'message'}, 'formId')` where you pass in a key/val pair of form field name and error messages.
+There are really no configuration options. The error handler is triggered via a call to `$.errorHandler({field: 'message'}, 'formId')` where you pass in a key/val pair of form field name and error messages. The second parameter, `formId`,  is optional and is a reference to the form if if one exists. This is necessary if you have multiple forms on the same page so you can target the appropriate one.
 
-The second parameter is optional and is a reference to the form if if one exists. This is necessary if you have multiple forms on the same page so you can target the appropriate one.
-
-Form fields will receive a class of `error`. 
+By default, form fields will receive a class of `error` if one is found. 
 
 ## Overriding the Default Error Message Format ##
 
@@ -18,6 +16,8 @@ You can override the default error message format by changing the value of `$.er
 ```javascript
 $.errorHandler.format = '<span class="error"><span>{message}</span></span>';
 ```
+
+Form fields will still receive a default class of `error`.
 
 ## List of error placements ##
 
