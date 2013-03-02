@@ -1,3 +1,8 @@
+## About ##
+
+jQuery errorHandler is a plugin which aims to simplify re-populating forms. It's really easy to use. All you have to do is pass it a `json` encoded array of key/val pairs following the format `formField => Error description`.
+That's it! If you want to get tricky, you can also specify multiple error handlers for different forms on a page. You can also tell errorHandler where to place your errors!
+
 ## Configuration ##
 
 There are really no configuration options. The error handler is triggered via a call to `$.errorHandler({field: 'message'}, 'formId')` where you pass in a key/val pair of form field name and error messages.
