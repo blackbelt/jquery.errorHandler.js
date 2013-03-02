@@ -11,6 +11,14 @@ The second parameter is optional and is a reference to the form if if one exists
 
 Form fields will receive a class of `error`. 
 
+## Overriding the Default Error Message Format ##
+
+You can override the default error message format by changing the value of `$.errorHandler.format`. It uses a mustache-like syntax for replacements, `{message}`. You must include `{message}` in your override. Here's the default (and an example of how to override):
+
+```javascript
+$.errorHandler.format = '<span class="error"><span>{message}</span></span>';
+```
+
 ## List of error placements ##
 
 If the form field has a data attribute of `placement`, i.e. `data-placement="appendForm"`, then the error will be appended to that location.
